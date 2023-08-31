@@ -34,6 +34,26 @@
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"/>
+
+            <!-- App Link -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="www.brandokonnect.com" android:pathPrefix="dashboard" />
+                <data android:scheme="https" android:host="www.brandokonnect.com" android:pathPrefix="dashboard" />
+            </intent-filter>
+
+            <!-- Deep Link sample -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Add optional android:host to distinguish your app
+                     from others in case of conflicting scheme name -->
+                <data android:scheme="brandokonnet" android:host="dashboard" android:pathPrefix="" />
+                <!-- <data android:scheme="sample" /> -->
+            </intent-filter>
        
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

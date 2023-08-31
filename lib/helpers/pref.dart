@@ -12,6 +12,10 @@ class Pref {
     _box = await Hive.openBox('data');
   }
 
+  //for storing login data
+  static bool get isLogin => _box.get('isLogin') ?? false;
+  static set isLogin(bool v) => _box.put('isLogin', v);
+
   //for storing theme data
   static bool get isDarkMode => _box.get('isDarkMode') ?? false;
   static set isDarkMode(bool v) => _box.put('isDarkMode', v);

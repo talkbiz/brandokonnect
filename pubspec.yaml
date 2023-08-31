@@ -48,6 +48,9 @@ dependencies:
   # For launching Url links
   url_launcher: ^6.1.10
 
+  # For launching Url links
+  app_links: ^3.4.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

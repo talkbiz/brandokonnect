@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
+import 'package:vpn_basic_project/helpers/pref.dart';
 import 'package:vpn_basic_project/screens/connect.dart';
+import 'package:vpn_basic_project/screens/home_screen.dart';
 
 import '../helpers/ad_helper.dart';
 import '../main.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({super.key, this.routeName});
+  final String? routeName;
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -24,8 +27,30 @@ class _SplashScreenState extends State<SplashScreen> {
       AdHelper.precacheInterstitialAd();
       AdHelper.precacheNativeAd();
 
+      if (Pref.isLogin) {
+
+        Get.off(() => HomeScreen());
+      } else {
+
+        if (widget.routeName != null) {
+          // routeName is empty when user login
+          // brandokonnet://dashboard
+          if (!widget.routeName!.contains('/')) {
+
+            Pref.isLogin = !Pref.isLogin;
+            Get.off(() => HomeScreen());
+          } else {
+
+            Get.off(() => ConnectScreen());
+          }
+        } else {
+
+          Get.off(() => ConnectScreen());
+        }
+      }
+
       //navigate to home
-      Get.off(() => ConnectScreen());
+     // Get.off(() => ConnectScreen());
       // Navigator.pushReplacement(
       //     context, MaterialPageRoute(builder: (_) => HomeScreen()));
     });
