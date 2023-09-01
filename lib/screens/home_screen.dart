@@ -33,7 +33,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
             onTap: () => _scaffoldKey.currentState?.openDrawer(),
-            child: Icon(Icons.menu)),
+            child: Icon(Icons.menu)
+        ),
         title: Image.asset(
           'assets/images/logo.jpeg',
           fit: BoxFit.scaleDown,

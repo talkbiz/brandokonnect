@@ -168,9 +168,8 @@ class _InAppWebViewState extends State<InAppWebView> {
               print('WebView is loading (progress : $progress%)');
             },
             onPageStarted: (String url) {
-            
 
-
+              if (!mounted) return;
               setState(() {
 
               });
@@ -179,7 +178,7 @@ class _InAppWebViewState extends State<InAppWebView> {
             onPageFinished: (String url) {
 
               print('Page finished loading: $url');
-            }));;
+            }));
 
     _controller = controller;
     _controller.loadRequest(Uri.parse(widget.url));

@@ -44,7 +44,7 @@
                 <data android:scheme="https" android:host="www.brandokonnect.com" android:pathPrefix="dashboard" />
             </intent-filter>
 
-            <!-- Deep Link sample -->
+            <!-- Deep Link -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
